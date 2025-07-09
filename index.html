@@ -1,303 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>johanbernardd's Portfolio</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="mediaqueries.css"/>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder"></script>
+  </head>
+  <body>
     <nav id="desktop-nav">
-        <div class="logo">Johanes Bernard</div>
-        <div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+      <div class="logo">Johanes Bernard</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#profile">Profile</a></li>
+        </ul>
+      </div>
     </nav>
     <nav id="hamburger-nav">
-        <div class="logo">Johanes Bernard</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-            </div>
+      <div class="logo">Johanes Bernard</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+        <div class="menu-links">
+          <li><a href="#profile" onclick="toggleMenu()">Profile</a></li>
+        </div>
+      </div>
     </nav>
     <section id="profile">
-        <div class="section__pic-container">
-            <img src="./assets/profile-pic.png" alt="Johanes Bernard Profile Pic">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="Johanes Bernard Profile Pic" />
+      </div>
+      <div class="section__text">
+        <div id="section-title-container">
+          <p class="section__text__p1">Hello, I'm</p>
+          <h1 class="title">Johanes Bernard</h1>
         </div>
-        <div class="section__text">
-            <p class="section__text__p1">Hello, I'm</p>
-            <h1 class="title">Johanes Bernard</h1>
-            <p class="section__text__p2">Data Scientist</p>
-            <div class="btn-container">
-                <button class="btn btn-color-2" onclick="window.open('./assets/cv.pdf')">
-                    Download CV
-                </button>
-                <button class="btn btn-color-1" onclick="location.href='./#contact'">
-                    Contact Info
-                </button>
-            </div>
-            <div id="socials-container">
-                <img src="./assets/linkedin.png" alt="My LinkedIn Profile"
-                class="icon" onclick="location.href='https://linkedin.com/in/johanespurek'"/>
-                <img src="./assets/github.png" alt="My GitHub Profile"
-                class="icon" onclick="location.href='https://github.com/johanbernardd'"/>
-            </div>
+        <p class="section__text__p2">Data Scientist</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-1"
+            onclick="window.open('./assets/cv.pdf')"
+          >
+            CV/Resume
+          </button>
+          <div id="socials-container">
+            <img
+              src="./assets/linkedin.png"
+              alt="My LinkedIn Profile"
+              class="icon"
+              onclick="location.href='https://linkedin.com/in/johanespurek'"
+            />
+            <img
+              src="./assets/github.png"
+              alt="My GitHub Profile"
+              class="icon"
+              onclick="location.href='https://github.com/johanbernardd'"
+            />
+          </div>
         </div>
-    </section>
-    <section id="about">
-        <p class="section__text__p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-            <div class="section__pic-container">
-                <img src="/assets/about-pic.png" alt="Profile Picture"
-                class="about-pic"/>
-            </div>
-            <div class="about-details-container">
-                <div class="about-containers">
-                    <div class="details-container">
-                        <img src="./assets/experience.png" alt="Experience Icon"
-                        class="icon"/>
-                        <h3>Experience</h3>
-                        <p>1+ years <br>Data Science</p>
-                    </div>
-                    <div class="details-container">
-                        <img src="./assets/education.png" alt="Education Icon"
-                        class="icon"/>
-                        <h3>Education</h3>
-                        <p>Bachelors of Computer Science<br>in Information Systems</p>
-                    </div>
-                </div>
-                <div class="text-container">
-                    <p>As a sophomore in Computer Science, I'm deeply passionate about exploring the intersections of Artificial Intelligence, Data Science, and Machine Learning. Delving into the intricate applications of AI in data and machine learning brings me immense joy. Actively contributing to shaping my understanding in these domains, I engage in conversations about complex algorithms and innovative applications, fueling my commitment to excellence in the ever-evolving landscape of Computer Science. </p>
-                </div>
-            </div>
+        <div id="ai">
+          <div id="first_assistant_desc">Ask me anything about Johanes!</div>
+          <input
+            type="text"
+            id="myInput"
+            placeholder="Type your question here..."
+          />
+          <div id="loading_dots" style="display: none">Thinking...</div>
+          <div id="output" style="display: none"></div>
+          <script src="ai.js"></script>
         </div>
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
-        onclick="location.href='./#experience'"/>
-    </section>
-    <section id="experience">
-        <p class="section__text__p1">Explore My</p>
-        <h1 class="title">Experience</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <h2 class="experience-sub-title">Data Science</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/python.png" alt="Python icon" class="icon"/>
-                            <div>
-                                <h3>Python</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/mysql.png" alt="MySQL icon" class="icon"/>
-                            <div>
-                                <h3>SQL</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/jupyter.png" alt="Jupyter Notebook icon" class="icon"/>
-                            <div>
-                                <h3>Jupyter Notebook</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/tableau.png" alt="Tableau icon" class="icon"/>
-                            <div>
-                                <h3>Tableau</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/scikitlearn.png" alt="Scikitlearn icon" class="icon"/>
-                            <div>
-                                <h3>Scikit Learn</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/tensorflow.png" alt="TensorFlow icon" class="icon"/>
-                            <div>
-                                <h3>TensorFlow</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="details-container">
-                    <h2 class="experience-sub-title">FrontEnd & BackEnd Dev</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/html.png" alt="HTML icon" class="icon"/>
-                            <div>
-                                <h3>HTML</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/css.png" alt="CSS icon" class="icon"/>
-                            <div>
-                                <h3>CSS</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/javascript.png" alt="JavaScript icon" class="icon"/>
-                            <div>
-                                <h3>JavaScript</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/typescript.png" alt="TypeScript icon" class="icon"/>
-                            <div>
-                                <h3>TypeScript</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/laravelphp.png" alt="Laravel & PHP icon" class="icon"/>
-                            <div>
-                                <h3>Laravel & PHP</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/javacpp.png" alt="Java & C++ icon" class="icon"/>
-                            <div>
-                                <h3>Java & C++</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="experience-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <h2 class="experience-sub-title">Others</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon"/>
-                            <div>
-                                <h3>Java</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon"/>
-                            <div>
-                                <h3>C++</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon"/>
-                            <div>
-                                <h3>Git</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon"/>
-                            <div>
-                                <h3>Figma</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
-        onclick="location.href='./#projects'"/>
-    </section>
-    <section id="projects">
-        <p class="section__text__p1">Browse My Recent</p>
-        <h1 class="title">Projects</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-            <div class="details-container color-container">
-                <div class="article-container">
-                    <img src="./assets/project-1.png" alt="project-1" class="project-img"/>
-                </div>
-                <h2 class="experience-sub-title project-title">KBMDSI FILKOM UB</h2>
-                <div class="btn-container">
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com'">GitHub</button>
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://kbmdsi.ub.ac.id'">Live Demo</button>
-                </div>
-            </div>
-            <div class="details-container color-container">
-                <div class="article-container">
-                    <img src="./assets/project-2.png" alt="project-2" class="project-img"/>
-                </div>
-                <h2 class="experience-sub-title project-title">Weather Predictor (On Progress)</h2>
-                <div class="btn-container">
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com'">GitHub</button>
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com'">Live Demo</button>
-                </div>
-            </div>
-            <div class="details-container color-container">
-                <div class="article-container">
-                    <img src="./assets/project-2.png" alt="project-3" class="project-img"/>
-                </div>
-                <h2 class="experience-sub-title project-title">On Progress</h2>
-                <div class="btn-container">
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com'">GitHub</button>
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com'">Live Demo</button>
-                </div>
-            </div>
-            </div>
-        </div>
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
-        onclick="location.href='./#contact'"/>
-    </section>
-    <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon"/>
-                <p><a href="mailto:johanesbernard26@gmail.com">johanesbernard26@gmail.com</a></p>
-            </div>
-            <div class="contact-info-container">
-                <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon"/>
-                <p><a href="https://linkedin.com/in/johanespurek">LinkedIn</a></p>
-            </div>
-        </div>
+      </div>
     </section>
     <footer>
-        <nav>
-            <div class="nav-links-container">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-        <p>Copyright &#169; 2023 Johanes Bernard. All Rights Reserved.</p>
+      <p>Copyright &#169; 2025 Johanes Bernard. All Rights Reserved.</p>
     </footer>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
